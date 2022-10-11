@@ -1,0 +1,101 @@
+<h1>Search / Add City</h1>
+
+<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+
+    <div>
+        <label for="name">
+          City Name
+        </label>
+        <input id="cityName" type="text" formControlName="cityName" [(ngModel)]="searchModel.cityName">
+      </div>
+
+    <button class="button" type="submit">Search</button>
+
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="searchResponse">
+        <thead>
+          <tr>
+            <th>City Name</th>
+            <th>Country Code</th>
+            <th>City Weather</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let forecast of searchResponse">
+            <td>{{ forecast.name }}</td>
+            <td>{{ forecast.sys.country }}</td>
+            <td>{{ calculateTemp(forecast.main.temp)}}</td>
+            <td><button id="searchAdd" title="Add" (click)="onSearchSelect(forecast.name,forecast.sys.country,forecast.main.temp)">Select</button> </td>
+          </tr>
+        </tbody>
+      </table>
+</form>
+
+<p>Enter details to add city.</p>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="name">
+      City Name
+    </label>
+    <input id="cityName" type="text" formControlName="cityName" [(ngModel)]="forecasts.cityName">
+  </div>
+
+  <div>
+    <label for="name">
+      State
+    </label>
+    <input id="state" type="text" formControlName="state" [(ngModel)]="forecasts.state">
+  </div>
+
+  <div>
+    <label for="name">
+      Country
+    </label>
+    <input id="country" type="text" formControlName="country" [(ngModel)]="forecasts.country">
+  </div>
+
+  <div>
+    <label for="name">
+      Tourist Rating
+    </label>
+    <input id="touristRating" type="text" formControlName="touristRating" [(ngModel)]="forecasts.touristRating">
+  </div>
+
+  <div>
+    <label for="name">
+      Two Digit Country Code
+    </label>
+    <input id="twoDigitCountryCode" type="text" formControlName="twoDigitCountryCode" [(ngModel)]="forecasts.twoDigitCountryCode">
+  </div>
+
+  <div>
+    <label for="name">
+      Three Digit Country Code
+    </label>
+    <input id="threeDigitCountryCode" type="text" formControlName="threeDigitCountryCode" [(ngModel)]="forecasts.threeDigitCountryCode">
+  </div>
+
+  <div>
+    <label for="name">
+      City Weather
+    </label>
+    <input id="cityWeather" type="text" formControlName="cityWeather" [(ngModel)]="forecasts.cityWeather">
+  </div>
+
+  <div>
+    <label for="name">
+      Estimated Population
+    </label>
+    <input id="estimatedPopulation" type="text" formControlName="estimatedPopulation" [(ngModel)]="forecasts.estimatedPopulation">
+  </div>
+
+  <div>
+    <label for="name">
+      Date Establisted
+    </label>
+    <input id="dateEstablisted" type="datetime" formControlName="dateEstablisted" [(ngModel)]="forecasts.dateEstablisted">
+  </div>
+
+  <button class="button" type="submit">Add</button>
+
+</form>

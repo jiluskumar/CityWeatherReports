@@ -1,0 +1,35 @@
+<h1 id="tableLabel">City List</h1>
+
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>City Name</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Tourist Rating</th>
+      <th>Two Digit Country Code</th>
+      <th>Three Digit Country Code</th>
+      <th>City Weather</th>
+      <th>Estimated Population</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.cityName }}</td>
+      <td>{{ forecast.state }}</td>
+      <td>{{ forecast.country }}</td>
+      <td>{{ forecast.touristRating }}</td>
+      <td>{{ forecast.twoDigitCountryCode }}</td>
+      <td>{{ forecast.threeDigitCountryCode }}</td>
+      <td>{{ forecast.cityWeather }}</td>
+      <td>{{ forecast.estimatedPopulation }}</td>
+      <td>{{ forecast.dateEstablisted | date:'dd-MM-yyyy' }}</td>
+      <td><button id="edit" title="Edit" (click)="onEditClick(forecast.cityId)">Edit</button> </td>
+      <td><button id="delete" title="Delete" (click)="onDeleteClick(forecast.cityId)">Delete</button> </td>
+    </tr>
+  </tbody>
+</table>

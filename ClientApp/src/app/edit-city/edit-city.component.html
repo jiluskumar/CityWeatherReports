@@ -1,0 +1,69 @@
+<p>edit-city works!</p>
+<form [formGroup]="editCityForm" (ngSubmit)="onUpdate()">
+
+    <div>
+      <label for="name">
+        City Name
+      </label>
+      <input id="cityName" type="text" formControlName="cityName" [(ngModel)]="forecast.cityName">
+    </div>
+  
+    <div>
+      <label for="name">
+        State
+      </label>
+      <input id="state" type="text" formControlName="state" [(ngModel)]="forecast.state">
+    </div>
+  
+    <div>
+      <label for="name">
+        Country
+      </label>
+      <input id="country" type="text" formControlName="country" [(ngModel)]="forecast.country">
+    </div>
+  
+    <div>
+      <label for="name">
+        Tourist Rating
+      </label>
+      <input id="touristRating" type="text" formControlName="touristRating" [(ngModel)]="forecast.touristRating">
+    </div>
+  
+    <div>
+      <label for="name">
+        Two Digit Country Code
+      </label>
+      <input id="twoDigitCountryCode" type="text" formControlName="twoDigitCountryCode" [(ngModel)]="forecast.twoDigitCountryCode">
+    </div>
+  
+    <div>
+      <label for="name">
+        Three Digit Country Code
+      </label>
+      <input id="threeDigitCountryCode" type="text" formControlName="threeDigitCountryCode" [(ngModel)]="forecast.threeDigitCountryCode">
+    </div>
+  
+    <div>
+      <label for="name">
+        City Weather
+      </label>
+      <input id="cityWeather" type="text" formControlName="cityWeather" [(ngModel)]="forecast.cityWeather">
+    </div>
+  
+    <div>
+      <label for="name">
+        Estimated Population
+      </label>
+      <input id="estimatedPopulation" type="text" formControlName="estimatedPopulation" [(ngModel)]="forecast.estimatedPopulation">
+    </div>
+  
+    <div>
+      <label for="name">
+        Date Establisted
+      </label>
+      <input id="dateEstablisted" type="datetime" formControlName="dateEstablisted" [(ngModel)]="forecast.dateEstablisted">
+    </div>
+  
+    <button class="button" type="submit">Update</button>
+  
+  </form>
